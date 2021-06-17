@@ -20,13 +20,13 @@ export class Interval {
   user: User;
 
   constructor(data: IntervalRecord) {
-    this.id = data.id;
+    this.id = data.id as number;
     this.start = new Date(data.start);
     this.end = new Date(data.end);
     this.sum = data.sum;
     this.latest = !!data.latest;
     this.single = data.single;
-    this.user = data.user;
+    this.user = data.user as User;
   }
 
   toRecord(): IntervalRecord {

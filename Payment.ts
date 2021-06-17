@@ -36,7 +36,7 @@ export class Payment {
     const result = new Payment(record.sum);
 
     result.id = record.id;
-    result.time = new Date(record.time);
+    result.time = new Date(record.time as number);
     result.date = Payment.date(result.time);
 
     return result;
