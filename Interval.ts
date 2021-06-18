@@ -12,8 +12,8 @@ export interface IntervalRecord {
 
 export class Interval {
   id: number;
-  start: Date;
-  end: Date;
+  start: Date|number;
+  end: Date|number;
   sum: number;
   latest: boolean;
   single: boolean;
@@ -32,8 +32,8 @@ export class Interval {
   toRecord(): IntervalRecord {
     return {
       id: this.id,
-      start: this.start.getTime(),
-      end: this.end.getTime(),
+      start: (this.start as Date).getTime(),
+      end: (this.end as Date).getTime(),
       sum: this.sum,
       latest: this.latest ? 1 : 0,
       single: this.single
