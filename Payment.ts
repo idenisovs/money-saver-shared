@@ -10,7 +10,7 @@ export interface PaymentRecord {
 
 export class Payment {
   id?: number;
-  time: Date;
+  time: Date|number;
   date: string;
   // date = Payment.date(this.time);
   sum: number;
@@ -27,8 +27,8 @@ export class Payment {
   record(): PaymentRecord {
     return {
       ...this,
-      time: this.time.getTime(),
-      date: this.date || Payment.date(this.time),
+      time: (this.time as Date).getTime(),
+      date: this.date || Payment.date(this.time as Date),
     };
   }
 
