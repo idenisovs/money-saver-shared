@@ -5,5 +5,5 @@ export interface Properties {
 	email: string;
 	password: Password;
 	timezone: Timezone;
-	language: string;
+	language: number;
 }
