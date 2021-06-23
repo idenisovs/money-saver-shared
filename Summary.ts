@@ -1,10 +1,10 @@
 import { Totals } from './Totals';
 import { ScheduleItem, ScheduleItemRecord } from './ScheduleItem';
-import { Interval, IntervalRecord } from './Interval';
+import { Interval } from './Interval';
 import { Spending, SpendingRecord } from './Spending';
 
 export interface SummaryRecord {
-  interval: IntervalRecord;
+  interval: Interval;
   schedule: ScheduleItemRecord[];
   spendings: SpendingRecord[];
   totals: Totals;

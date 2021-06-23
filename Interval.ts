@@ -1,42 +1,16 @@
-import { User } from './User';
-
-export interface IntervalRecord {
-  id?: number;
-  start: number;
-  end: number;
-  sum: number;
-  latest?: number|boolean;
-  single: boolean;
-  user?: User;
-}
-
 export class Interval {
-  id: number;
-  start: Date|number;
-  end: Date|number;
-  sum: number;
-  latest: boolean;
-  single: boolean;
-  user: User;
+  id?: number;
+  start = new Date();
+  end = new Date();
+  sum = 0;
+  latest = false;
 
-  constructor(data: IntervalRecord) {
-    this.id = data.id as number;
-    this.start = new Date(data.start);
-    this.end = new Date(data.end);
-    this.sum = data.sum;
-    this.latest = !!data.latest;
-    this.single = data.single;
-    this.user = data.user as User;
-  }
+  constructor(dto?: Interval) {
+    if (dto) {
+      Object.assign(this, dto);
 
-  toRecord(): IntervalRecord {
-    return {
-      id: this.id,
-      start: (this.start as Date).getTime(),
-      end: (this.end as Date).getTime(),
-      sum: this.sum,
-      latest: this.latest ? 1 : 0,
-      single: this.single
+      this.start = new Date(dto.start);
+      this.end = new Date(dto.end);
     }
   }
 }
