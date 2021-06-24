@@ -1,64 +1,14 @@
-export interface PaymentRecord {
-  id?: number;
-  time?: number;
-  date?: string;
-  sum: number;
-  remove?: boolean;
-  update?: boolean;
-  add?: boolean;
-}
-
 export class Payment {
-  id?: number;
-  time: Date|number;
-  date: string;
-  // date = Payment.date(this.time);
-  sum: number;
-  remove?: boolean;
-  update?: boolean;
-  add?: boolean;
+	id?: number;
+	time = new Date();
+	sum = 0;
+	add?: boolean;
+	update?: boolean;
+	remove?: boolean;
 
-  constructor(value = 0, time = new Date()) {
-    this.sum = value;
-    this.time = time;
-    this.date = Payment.date(this.time);
-  }
-
-  record(): PaymentRecord {
-    return {
-      ...this,
-      time: (this.time as Date).getTime(),
-      date: this.date || Payment.date(this.time as Date),
-    };
-  }
-
-  static build(record: PaymentRecord): Payment {
-    const result = new Payment(record.sum);
-
-    result.id = record.id;
-    result.time = new Date(record.time as number);
-    result.date = Payment.date(result.time);
-
-    return result;
-  }
-
-  static date(time: Date): string {
-    const date: string[] = [];
-
-    date.push(String(time.getFullYear()));
-    date.push(Payment.str(time.getMonth() + 1));
-    date.push(Payment.str(time.getDate()));
-
-    return date.join('-');
-  }
-
-  static str(value: number): string {
-    if (value < 10) {
-      return `0${value}`;
-    } else {
-      return value.toString();
-    }
-  }
+	constructor(dto?: Payment) {
+		if (dto) {
+			Object.assign(this, dto);
+		}
+	}
 }
-
-

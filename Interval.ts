@@ -8,9 +8,6 @@ export class Interval {
   constructor(dto?: Interval) {
     if (dto) {
       Object.assign(this, dto);
-
-      this.start = new Date(dto.start);
-      this.end = new Date(dto.end);
     }
   }
 }
