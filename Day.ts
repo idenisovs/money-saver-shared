@@ -1,8 +1,12 @@
 export class Day {
 	date = new Date();
 	expenses = 0;
-	residual = 0;
-	planned = 0;
+
+	residual = {
+		planned: 0,
+		real: 0
+	};
+
 	balance = {
 		daily: 0,
 		total: 0
