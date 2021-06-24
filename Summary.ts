@@ -1,25 +1,17 @@
-import { Totals } from './Totals';
-import { ScheduleItem, ScheduleItemRecord } from './ScheduleItem';
 import { Interval } from './Interval';
-import { Spending, SpendingRecord } from './Spending';
+import { Day } from './Day';
+import { Totals } from './Totals';
 
-export interface SummaryRecord {
-  interval: Interval;
-  schedule: ScheduleItemRecord[];
-  spendings: SpendingRecord[];
-  totals: Totals;
-}
+export class Summary extends Interval {
+  days: Day[] = [];
+  totals = new Totals();
 
-export class Summary {
-  interval: Interval;
-  schedule: ScheduleItem[];
-  spendings: Spending[];
-  totals: Totals;
+  constructor(dto?: Summary) {
+    super(dto);
 
-  constructor(record: SummaryRecord) {
-    this.interval = new Interval(record.interval);
-    this.schedule = record.schedule.map((item) => new ScheduleItem(item));
-    this.spendings = record.spendings.map((item) => new Spending(item));
-    this.totals = record.totals;
+    if (dto) {
+      this.days = dto.days.map<Day>(d => new Day(d));
+      this.totals = dto.totals;
+    }
   }
 }
