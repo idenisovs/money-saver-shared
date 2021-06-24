@@ -10,3 +10,4 @@ export * from './PaymentsSaveResult';
 export * from './Properties';
 export * from './Timezone';
 export * from './Password';
+export * from './Expenses';
