@@ -3,7 +3,7 @@ export class Interval {
   start = new Date();
   end = new Date();
   sum = 0;
-  latest = false;
+  latest? = false;
 
   constructor(dto?: Interval) {
     if (dto) {
