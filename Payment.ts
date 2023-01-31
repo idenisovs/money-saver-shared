@@ -7,8 +7,12 @@ export class Payment {
 	remove?: boolean;
 
 	constructor(dto?: Payment) {
-		if (dto) {
-			Object.assign(this, dto);
+		if (!dto) {
+			return;
 		}
+
+    Object.assign(this, dto);
+
+    this.time = new Date(dto.time);
 	}
 }
