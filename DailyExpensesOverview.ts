@@ -1,6 +1,6 @@
 import { getDateStr } from './utils';
 
-export class Day {
+export class DailyExpensesOverview {
 	date = new Date();
 	expenses = 0;
 
@@ -14,7 +14,7 @@ export class Day {
 		total: 0
 	};
 
-	constructor(dto?: Day) {
+	constructor(dto?: DailyExpensesOverview) {
 		if (dto) {
 			Object.assign(this, dto);
 

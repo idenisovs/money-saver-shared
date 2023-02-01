@@ -1,17 +1,19 @@
 import { Interval } from './Interval';
-import { Day } from './Day';
+import { DailyExpensesOverview } from './DailyExpensesOverview';
 import { Totals } from './Totals';
 
 export class Summary {
 	interval = new Interval();
-	days: Day[] = [];
+	dailyExpenses: DailyExpensesOverview[] = [];
 	totals = new Totals();
 
 	constructor(dto?: Summary) {
-		if (dto) {
-			this.interval = new Interval(dto.interval);
-			this.days = dto.days.map<Day>(d => new Day(d));
-			this.totals = dto.totals;
+		if (!dto) {
+			return;
 		}
+
+		this.interval = new Interval(dto.interval);
+		this.dailyExpenses = dto.dailyExpenses.map<DailyExpensesOverview>(d => new DailyExpensesOverview(d));
+		this.totals = dto.totals;
 	}
 }

@@ -9,4 +9,4 @@ export * from './Properties';
 export * from './Timezone';
 export * from './Password';
 export * from './Expenses';
-export * from './Day';
+export * from './DailyExpensesOverview';
