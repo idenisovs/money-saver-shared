@@ -1,3 +1,5 @@
+import { getDateStr } from './utils';
+
 export class Day {
 	date = new Date();
 	expenses = 0;
@@ -19,4 +21,8 @@ export class Day {
 			this.date = new Date(dto.date);
 		}
 	}
+
+  public getShortDate() {
+    return getDateStr(this.date);
+  }
 }
