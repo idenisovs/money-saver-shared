@@ -11,8 +11,8 @@ export class Payment {
 			return;
 		}
 
-    Object.assign(this, dto);
+		Object.assign(this, dto);
 
-    this.time = new Date(dto.time);
+		this.time = new Date(dto.time);
 	}
 }
