@@ -2,16 +2,17 @@ import { getDateStr } from './utils';
 
 export class DailyExpensesOverview {
 	date = new Date();
+
 	expenses = 0;
 
 	residual = {
 		planned: 0,
-		real: 0
+		real: 0,
 	};
 
 	balance = {
 		daily: 0,
-		total: 0
+		total: 0,
 	};
 
 	constructor(dto?: DailyExpensesOverview) {
@@ -22,7 +23,7 @@ export class DailyExpensesOverview {
 		}
 	}
 
-  public getShortDate() {
-    return getDateStr(this.date);
-  }
+	public getShortDate() {
+		return getDateStr(this.date);
+	}
 }

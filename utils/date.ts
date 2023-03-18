@@ -10,7 +10,8 @@ export function isSameDay(date1: Date, date2: Date): boolean {
 }
 
 export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true): number {
-	let date1: Date, date2: Date;
+	let date1: Date; let
+		date2: Date;
 
 	if (dateA.getTime() > dateB.getTime()) {
 		date1 = new Date(dateB);
@@ -33,25 +34,25 @@ export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true)
 }
 
 export function getDateStr(date = new Date()): string {
-  const result: string[] = [];
+	const result: string[] = [];
 
-  result.push(date.getFullYear().toString());
+	result.push(date.getFullYear().toString());
 
-  let mm = (date.getMonth() + 1);
+	const mm = (date.getMonth() + 1);
 
-  if (mm < 10) {
-    result.push('0' + mm);
-  } else {
-    result.push(mm.toString())
-  }
+	if (mm < 10) {
+		result.push(`0${mm}`);
+	} else {
+		result.push(mm.toString());
+	}
 
-  const dd = date.getDate();
+	const dd = date.getDate();
 
-  if (dd < 10) {
-    result.push('0' + dd);
-  } else {
-    result.push(dd.toString())
-  }
+	if (dd < 10) {
+		result.push(`0${dd}`);
+	} else {
+		result.push(dd.toString());
+	}
 
-  return result.join('-');
+	return result.join('-');
 }

@@ -1,5 +1,6 @@
 export class Expenses {
 	date = new Date();
+
 	sum = 0;
 
 	constructor(dto?: Expenses) {

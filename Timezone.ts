@@ -1,7 +1,7 @@
 export interface Timezone {
-	timeZoneId: number; 
+	timeZoneId: number;
 	gmtAdjustment: string;
 	useDaylightTime: boolean;
-	value: number, 
+	value: number,
 	label: string
 }
