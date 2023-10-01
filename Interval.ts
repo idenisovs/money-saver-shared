@@ -1,3 +1,5 @@
+import { daysDiff } from './utils';
+
 export class Interval {
 	id?: number;
 
@@ -9,11 +11,22 @@ export class Interval {
 
 	latest? = false;
 
-	constructor(dto?: Interval) {
-		if (dto) {
-			Object.assign(this, dto);
+	get length(): number {
+		return daysDiff(this.start, this.end);
+	}
 
+	constructor(dto?: Partial<Interval>) {
+		if (!dto) {
+			return;
+		}
+
+		Object.assign(this, dto);
+
+		if (dto.start) {
 			this.start = new Date(dto.start);
+		}
+
+		if (dto.end) {
 			this.end = new Date(dto.end);
 		}
 	}

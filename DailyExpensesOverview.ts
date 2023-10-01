@@ -15,10 +15,14 @@ export class DailyExpensesOverview {
 		total: 0,
 	};
 
-	constructor(dto?: DailyExpensesOverview) {
-		if (dto) {
-			Object.assign(this, dto);
+	constructor(dto?: Partial<DailyExpensesOverview>) {
+		if (!dto) {
+			return;
+		}
 
+		Object.assign(this, dto);
+
+		if (dto.date) {
 			this.date = new Date(dto.date);
 		}
 	}

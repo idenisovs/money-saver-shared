@@ -28,9 +28,9 @@ export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true)
 
 	const dT = date2.getTime() - date1.getTime();
 
-	const daysDiff = dT / D;
+	const diff = dT / D;
 
-	return Math.floor(daysDiff);
+	return Math.floor(diff);
 }
 
 export function getDateStr(date = new Date()): string {
@@ -55,4 +55,20 @@ export function getDateStr(date = new Date()): string {
 	}
 
 	return result.join('-');
+}
+
+export function startOfDay(from: Date): Date {
+	const date = new Date(from);
+
+	date.setHours(0, 0, 0);
+
+	return date;
+}
+
+export function endOfDay(from: Date): Date {
+	const date = new Date(from);
+
+	date.setTime(date.getTime() + D - 1);
+
+	return date;
 }
