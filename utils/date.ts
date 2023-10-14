@@ -1,7 +1,4 @@
-const SEC = 1000;
-const MIN = SEC * 60;
-const H = MIN * 60;
-const D = H * 24;
+import { D, Days } from '../constants';
 
 export function isSameDay(date1: Date, date2: Date): boolean {
 	return date1.getFullYear() === date2.getFullYear()
@@ -71,4 +68,10 @@ export function endOfDay(from: Date): Date {
 	date.setTime(date.getTime() + D - 1);
 
 	return date;
+}
+
+export function isWeekend(date: Date): boolean {
+  const day = date.getDay();
+
+  return day === Days.SATURDAY || day === Days.SUNDAY;
 }
