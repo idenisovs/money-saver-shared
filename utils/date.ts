@@ -27,7 +27,7 @@ export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true)
 
 	const diff = dT / D;
 
-	return Math.floor(diff);
+	return Math.round(diff);
 }
 
 export function getDateStr(date = new Date()): string {
