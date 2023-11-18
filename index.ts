@@ -6,7 +6,6 @@ export * from './Totals';
 export * from './Payment';
 export * from './PaymentsSaveResult';
 export * from './Properties';
-export * from './Timezone';
 export * from './Password';
 export * from './Expenses';
 export * from './DailyExpensesOverview';

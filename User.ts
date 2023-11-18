@@ -2,7 +2,7 @@ export interface User {
 	id: number;
 	login: string;
 	email: string;
-	timezone: number;
+	timezone: string;
 	language: string;
 	password?: string;
 }
