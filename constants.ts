@@ -1,7 +1,7 @@
 export const SEC = 1000;
 export const MIN = SEC * 60;
-export const H = MIN * 60;
-export const D = H * 24;
+export const HOUR = MIN * 60;
+export const DAY = HOUR * 24;
 
 export enum Days {
   MONDAY = 1,

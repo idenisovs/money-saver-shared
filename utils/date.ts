@@ -1,4 +1,4 @@
-import { D, Days } from '../constants';
+import { DAY, Days } from '../constants';
 
 export function isSameDay(date1: Date, date2: Date): boolean {
 	return date1.getFullYear() === date2.getFullYear()
@@ -7,8 +7,8 @@ export function isSameDay(date1: Date, date2: Date): boolean {
 }
 
 export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true): number {
-	let date1: Date; let
-		date2: Date;
+	let date1: Date;
+	let date2: Date;
 
 	if (dateA.getTime() > dateB.getTime()) {
 		date1 = new Date(dateB);
@@ -25,7 +25,7 @@ export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true)
 
 	const dT = date2.getTime() - date1.getTime();
 
-	const diff = dT / D;
+	const diff = dT / DAY;
 
 	return Math.round(diff);
 }
@@ -65,7 +65,7 @@ export function startOfDay(from: Date): Date {
 export function endOfDay(from: Date): Date {
 	const date = new Date(from);
 
-	date.setTime(date.getTime() + D - 1);
+	date.setTime(date.getTime() + DAY - 1);
 
 	return date;
 }
