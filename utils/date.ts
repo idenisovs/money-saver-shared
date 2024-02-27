@@ -53,12 +53,10 @@ export function startOfDay(from: Date, timezone: string): Date {
 	return new Date(timeInUtc - offset);
 }
 
-export function endOfDay(from: Date): Date {
-	const date = new Date(from);
-
-	date.setHours(23, 59, 59);
-
-	return date;
+export function endOfDay(from: Date, timezone: string): Date {
+	const offset = getTimezoneOffset(from, timezone);
+	const timeInUtc = from.setHours(23, 59, 59, 999);
+	return new Date(timeInUtc - offset);
 }
 
 export function isWeekend(date: Date): boolean {
