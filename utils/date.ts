@@ -47,12 +47,10 @@ export function getDateStr(date = new Date()): string {
 	return result.join('-');
 }
 
-export function startOfDay(from: Date): Date {
-	const date = new Date(from);
-
-	date.setHours(0, 0, 0);
-
-	return date;
+export function startOfDay(from: Date, timezone: string): Date {
+	const offset = getTimezoneOffset(from, timezone);
+	const timeInUtc = from.setHours(0, 0, 0, 0);
+	return new Date(timeInUtc - offset);
 }
 
 export function endOfDay(from: Date): Date {
@@ -69,7 +67,7 @@ export function isWeekend(date: Date): boolean {
   return day === Days.SATURDAY || day === Days.SUNDAY;
 }
 
-export function findTimezoneOffset(date: Date, timeZone: string): number {
+export function getTimezoneOffset(date: Date, timeZone: string): number {
 	const utcDate = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
 	const localizedDate = new Date(date.toLocaleString('en-US', { timeZone }));
 	return localizedDate.getTime() - utcDate.getTime();
