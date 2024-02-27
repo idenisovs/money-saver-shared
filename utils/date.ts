@@ -49,14 +49,18 @@ export function getDateStr(date = new Date()): string {
 
 export function startOfDay(from: Date, timezone: string): Date {
 	const offset = getTimezoneOffset(from, timezone);
-	const timeInUtc = from.setHours(0, 0, 0, 0);
-	return new Date(timeInUtc - offset);
+	const localDate = new Date(from.getTime() + offset);
+	const localTime = localDate.setHours(0, 0, 0, 0);
+	localDate.setTime(localTime - offset);
+	return localDate;
 }
 
 export function endOfDay(from: Date, timezone: string): Date {
 	const offset = getTimezoneOffset(from, timezone);
-	const timeInUtc = from.setHours(23, 59, 59, 999);
-	return new Date(timeInUtc - offset);
+	const localDate = new Date(from.getTime() + offset);
+	const localTime = localDate.setHours(23, 59, 59, 999);
+	localDate.setTime(localTime - offset);
+	return localDate;
 }
 
 export function isWeekend(date: Date): boolean {
