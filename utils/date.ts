@@ -6,7 +6,7 @@ export function isSameDay(date1: Date, date2: Date): boolean {
 		&& date1.getDate() === date2.getDate();
 }
 
-export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true): number {
+export function daysDiff(dateA: Date, dateB: Date): number {
 	let date1: Date;
 	let date2: Date;
 
@@ -18,16 +18,9 @@ export function daysDiff(dateA: Date, dateB: Date, hoursDifferenceMatter = true)
 		date2 = new Date(dateB);
 	}
 
-	if (!hoursDifferenceMatter) {
-		date1.setHours(0, 0, 0);
-		date2.setHours(23, 59, 59);
-	}
-
 	const dT = date2.getTime() - date1.getTime();
 
-	const diff = dT / DAY;
-
-	return Math.ceil(diff);
+	return dT / DAY;
 }
 
 export function getDateStr(date = new Date()): string {
@@ -65,7 +58,7 @@ export function startOfDay(from: Date): Date {
 export function endOfDay(from: Date): Date {
 	const date = new Date(from);
 
-	date.setTime(date.getTime() + DAY - 1);
+	date.setHours(23, 59, 59);
 
 	return date;
 }
@@ -74,4 +67,10 @@ export function isWeekend(date: Date): boolean {
   const day = date.getDay();
 
   return day === Days.SATURDAY || day === Days.SUNDAY;
+}
+
+export function findTimezoneOffset(date: Date, timeZone: string): number {
+	const utcDate = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
+	const localizedDate = new Date(date.toLocaleString('en-US', { timeZone }));
+	return localizedDate.getTime() - utcDate.getTime();
 }
