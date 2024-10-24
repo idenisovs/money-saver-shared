@@ -1,14 +1,10 @@
-import { daysDiff } from './utils';
+import { getDateStr, daysDiff } from './utils';
 
 export class Interval {
 	id?: number;
-
-	start = new Date();
-
-	end = new Date();
-
+	start = getDateStr();
+	end = getDateStr();
 	sum = 0;
-
 	latest? = false;
 
 	get length(): number {
@@ -21,13 +17,5 @@ export class Interval {
 		}
 
 		Object.assign(this, dto);
-
-		if (dto.start) {
-			this.start = new Date(dto.start);
-		}
-
-		if (dto.end) {
-			this.end = new Date(dto.end);
-		}
 	}
 }

@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 import { DAY, Days } from '../constants';
 
 export function isSameDay(date1: Date, date2: Date): boolean {
@@ -6,21 +8,10 @@ export function isSameDay(date1: Date, date2: Date): boolean {
 		&& date1.getDate() === date2.getDate();
 }
 
-export function daysDiff(dateA: Date, dateB: Date): number {
-	let date1: Date;
-	let date2: Date;
-
-	if (dateA.getTime() > dateB.getTime()) {
-		date1 = new Date(dateB);
-		date2 = new Date(dateA);
-	} else {
-		date1 = new Date(dateA);
-		date2 = new Date(dateB);
-	}
-
-	const dT = date2.getTime() - date1.getTime();
-
-	return dT / DAY;
+export function daysDiff(dateA: string, dateB: string): number {
+	const a = DateTime.fromISO(dateA);
+	const b = DateTime.fromISO(dateB);
+	return b.diff(a, 'days').days;
 }
 
 export function getDateStr(date = new Date()): string {
