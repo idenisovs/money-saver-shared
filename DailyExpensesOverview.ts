@@ -1,7 +1,7 @@
 import { getDateStr } from './utils';
 
 export class DailyExpensesOverview {
-	date = new Date();
+	date: string = '';
 
 	expenses = 0;
 
@@ -21,13 +21,5 @@ export class DailyExpensesOverview {
 		}
 
 		Object.assign(this, dto);
-
-		if (dto.date) {
-			this.date = new Date(dto.date);
-		}
-	}
-
-	public getShortDate() {
-		return getDateStr(this.date);
 	}
 }

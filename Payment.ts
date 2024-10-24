@@ -1,7 +1,7 @@
 export class Payment {
 	id?: number;
 
-	time = new Date();
+	date: string = '';
 
 	sum = 0;
 
@@ -17,7 +17,5 @@ export class Payment {
 		}
 
 		Object.assign(this, dto);
-
-		this.time = new Date(dto.time);
 	}
 }
