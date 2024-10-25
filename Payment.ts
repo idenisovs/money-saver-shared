@@ -7,7 +7,7 @@ export class Payment {
 	remove?: boolean;
 	createdAt = new Date();
 
-	constructor(dto?: Payment) {
+	constructor(dto?: Partial<Payment>) {
 		if (!dto) {
 			return;
 		}
