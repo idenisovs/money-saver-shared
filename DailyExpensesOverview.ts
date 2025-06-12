@@ -1,5 +1,3 @@
-import { getDateStr } from './utils';
-
 export class DailyExpensesOverview {
 	date: string = '';
 
@@ -8,6 +6,7 @@ export class DailyExpensesOverview {
 	residual = {
 		planned: 0,
 		real: 0,
+		forecast: 0
 	};
 
 	balance = {
