@@ -8,7 +8,7 @@ export class Interval {
 	latest? = false;
 
 	get length(): number {
-		return daysDiff(this.start, this.end);
+		return daysDiff(this.start, this.end) + 1;
 	}
 
 	constructor(dto?: Partial<Interval>) {

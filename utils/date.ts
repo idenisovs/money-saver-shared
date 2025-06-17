@@ -1,12 +1,6 @@
 import { DateTime } from 'luxon';
 
-import { DAY, Days } from '../constants';
-
-export function isSameDay(date1: Date, date2: Date): boolean {
-	return date1.getFullYear() === date2.getFullYear()
-		&& date1.getMonth() === date2.getMonth()
-		&& date1.getDate() === date2.getDate();
-}
+import { Days } from '../constants';
 
 export function daysDiff(dateA: string, dateB: string): number {
 	const a = DateTime.fromISO(dateA);
