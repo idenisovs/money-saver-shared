@@ -9,3 +9,4 @@ export * from './Properties';
 export * from './Password';
 export * from './Expenses';
 export * from './DailyExpensesOverview';
+export * from './IntervalSummary';
